@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import bgSidebar from "../assets/bg-sidebar-desktop.svg";
 
 function Personal() {
   const navigate = useNavigate();
@@ -70,7 +69,7 @@ function Personal() {
     <div className="w-[940px] flex p-4 rounded-2xl mt-4 h-[560px] m-auto bg-white">
       <div
         className="w-[274px] h-[530px] bg-contain bg-no-repeat"
-        style={{ backgroundImage: `url(${bgSidebar})` }}>
+        style={{ backgroundImage: `url('./assets/bg-sidebar-desktop.svg')` }}>
         <div className="p-7">
           <div
             className="flex items-center gap-5 mt-4 cursor-pointer"
