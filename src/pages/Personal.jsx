@@ -69,7 +69,7 @@ function Personal() {
     <div className="w-[940px] flex p-4 rounded-2xl mt-4 h-[560px] m-auto bg-white">
       <div
         className="w-[274px] h-[530px] bg-contain bg-no-repeat"
-        style={{ backgroundImage: `url('./assets/bg-sidebar-desktop.svg')` }}>
+        style={{ backgroundImage:  `url(${bgSidebar})` }}>
         <div className="p-7">
           <div
             className="flex items-center gap-5 mt-4 cursor-pointer"
