@@ -1,16 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import bgSidebar from "../assets/bg-sidebar-desktop.svg";
 
 const PickAdd = () => {
   const navigate = useNavigate();
 
-
   const [selectedAddOns, setSelectedAddOns] = useState({});
 
-
   const [error, setError] = useState("");
-
 
   const handleCheckboxChange = (addOn) => {
     setSelectedAddOns((prev) => ({
@@ -19,14 +15,12 @@ const PickAdd = () => {
     }));
   };
 
-
   const handleNextStep = () => {
     if (Object.keys(selectedAddOns).length === 0) {
       setError("Please select at least one add-on.");
       return;
     }
     setError("");
-
 
     localStorage.setItem("selectedAddOns", JSON.stringify(selectedAddOns));
 
@@ -37,7 +31,7 @@ const PickAdd = () => {
     <div className="w-[940px] flex p-4 rounded-2xl mt-4 h-[560px] m-auto bg-white">
       <div
         className="w-[274px] h-[530px] bg-contain bg-no-repeat"
-        style={{ backgroundImage: `url(${bgSidebar})` }}>
+        style={{ backgroundImage: `url('./assets/bg-sidebar-desktop.svg')` }}>
         <div className="p-7">
           <div
             className="flex items-center gap-5 mt-4 cursor-pointer"
@@ -104,14 +98,31 @@ const PickAdd = () => {
         </div>
         <div className="mt-9 space-y-5">
           {[
-            { id: "online", title: "Online Service", description: "Access to multiplayer games", price: "+$1/mo" },
-            { id: "storage", title: "Larger Storage", description: "Extra 1TB of cloud save", price: "+$2/mo" },
-            { id: "custom", title: "Customizable Profile", description: "Custom theme on your profile", price: "+$2/mo" }
+            {
+              id: "online",
+              title: "Online Service",
+              description: "Access to multiplayer games",
+              price: "+$1/mo",
+            },
+            {
+              id: "storage",
+              title: "Larger Storage",
+              description: "Extra 1TB of cloud save",
+              price: "+$2/mo",
+            },
+            {
+              id: "custom",
+              title: "Customizable Profile",
+              description: "Custom theme on your profile",
+              price: "+$2/mo",
+            },
           ].map(({ id, title, description, price }) => (
             <div
               key={id}
               className={`w-full h-[81px] flex items-center p-4 border rounded-lg cursor-pointer ${
-                selectedAddOns[id] ? "border-[#723EFC] bg-[#DCDCDF]" : "border-gray-300"
+                selectedAddOns[id]
+                  ? "border-[#723EFC] bg-[#DCDCDF]"
+                  : "border-gray-300"
               }`}
               onClick={() => handleCheckboxChange(id)}>
               <input

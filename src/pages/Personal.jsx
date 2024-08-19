@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import bgSidebar from '../assets/bg-sidebar-desktop.svg'
 
 function Personal() {
   const navigate = useNavigate();
   const location = useLocation();
-
 
   const [formData, setFormData] = useState({
     name: "",
@@ -13,19 +11,16 @@ function Personal() {
     phone: "",
   });
 
-
   const [errors, setErrors] = useState({
     name: "",
     email: "",
     phone: "",
   });
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
 
   const validateForm = () => {
     let valid = true;
@@ -51,13 +46,11 @@ function Personal() {
     return valid;
   };
 
-
   const handleNextStep = () => {
     if (validateForm()) {
       navigate("/select");
     }
   };
-
 
   const getStepStyle = (step) => {
     const isActive = location.pathname === `/${step}`;
@@ -70,13 +63,16 @@ function Personal() {
     <div className="w-[940px] flex p-4 rounded-2xl mt-4 h-[560px] m-auto bg-white">
       <div
         className="w-[274px] h-[530px] bg-contain bg-no-repeat"
-        style={{ backgroundImage:  `url(${bgSidebar})` }}>
+        style={{ backgroundImage: `url('./assets/bg-sidebar-desktop.svg')` }}>
         <div className="p-7">
           <div
             className="flex items-center gap-5 mt-4 cursor-pointer"
             onClick={() => navigate("/personal")}>
             <div className="flex justify-center items-center">
-              <span className={`w-[33px] h-[33px] border-[1.5px] ${getStepStyle('personal')} font-[700] text-[14px] p-1 rounded-full flex justify-center items-center`}>
+              <span
+                className={`w-[33px] h-[33px] border-[1.5px] ${getStepStyle(
+                  "personal"
+                )} font-[700] text-[14px] p-1 rounded-full flex justify-center items-center`}>
                 1
               </span>
             </div>
@@ -89,7 +85,10 @@ function Personal() {
             className="flex mt-6 items-center gap-5 cursor-pointer"
             onClick={() => navigate("/select")}>
             <div className="flex justify-center items-center">
-              <span className={`w-[33px] h-[33px] border-[1.5px] ${getStepStyle('select')} font-[700] text-[14px] p-1 rounded-full flex justify-center items-center`}>
+              <span
+                className={`w-[33px] h-[33px] border-[1.5px] ${getStepStyle(
+                  "select"
+                )} font-[700] text-[14px] p-1 rounded-full flex justify-center items-center`}>
                 2
               </span>
             </div>
@@ -102,7 +101,10 @@ function Personal() {
             className="flex mt-6 items-center gap-5 cursor-pointer"
             onClick={() => navigate("/pick-add")}>
             <div className="flex justify-center items-center">
-              <span className={`w-[33px] h-[33px] border-[1.5px] ${getStepStyle('pick-add')} font-[700] text-[14px] p-1 rounded-full flex justify-center items-center`}>
+              <span
+                className={`w-[33px] h-[33px] border-[1.5px] ${getStepStyle(
+                  "pick-add"
+                )} font-[700] text-[14px] p-1 rounded-full flex justify-center items-center`}>
                 3
               </span>
             </div>
@@ -115,7 +117,10 @@ function Personal() {
             className="flex mt-6 items-center gap-5 cursor-pointer"
             onClick={() => navigate("/finish")}>
             <div className="flex justify-center items-center">
-              <span className={`w-[33px] h-[33px] border-[1.5px] ${getStepStyle('finish')} font-[700] text-[14px] p-1 rounded-full flex justify-center items-center`}>
+              <span
+                className={`w-[33px] h-[33px] border-[1.5px] ${getStepStyle(
+                  "finish"
+                )} font-[700] text-[14px] p-1 rounded-full flex justify-center items-center`}>
                 4
               </span>
             </div>
