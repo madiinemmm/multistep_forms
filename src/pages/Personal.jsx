@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import bgSidebar from '../assets/bg-sidebar-desktop.svg'
 
 function Personal() {
   const navigate = useNavigate();
